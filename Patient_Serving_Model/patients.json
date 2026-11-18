@@ -1,0 +1,132 @@
+{
+    "P001": {
+        "name": "Ananya Sharma",
+        "city": "Noida",
+        "age": 24,
+        "gender": "Female",
+        "height": 1.65,
+        "weight": 90.0,
+        "bmi": 33.06,
+        "verdit": "Obese"
+    },
+    "P002": {
+        "name": "Rahul Verma",
+        "city": "Delhi",
+        "age": 28,
+        "gender": "Male",
+        "height": 1.75,
+        "weight": 72.0,
+        "bmi": 23.51,
+        "verdit": "Normal"
+    },
+    "P003": {
+        "name": "Priya Singh",
+        "city": "Gurugram",
+        "age": 31,
+        "gender": "Female",
+        "height": 1.6,
+        "weight": 58.0,
+        "bmi": 22.66,
+        "verdit": "Normal"
+    },
+    "P004": {
+        "name": "Amit Kumar",
+        "city": "Faridabad",
+        "age": 35,
+        "gender": "Male",
+        "height": 1.8,
+        "weight": 95.0,
+        "bmi": 29.32,
+        "verdit": "Overweight"
+    },
+    "P005": {
+        "name": "Neha Gupta",
+        "city": "Ghaziabad",
+        "age": 27,
+        "gender": "Female",
+        "height": 1.68,
+        "weight": 48.0,
+        "bmi": 17.01,
+        "verdit": "Underweight"
+    },
+    "P006": {
+        "name": "Vikram Mehta",
+        "city": "Jaipur",
+        "age": 40,
+        "gender": "Male",
+        "height": 1.72,
+        "weight": 82.0,
+        "bmi": 27.72,
+        "verdit": "Overweight"
+    },
+    "P007": {
+        "name": "Sneha Patel",
+        "city": "Ahmedabad",
+        "age": 22,
+        "gender": "Female",
+        "height": 1.58,
+        "weight": 50.0,
+        "bmi": 20.03,
+        "verdit": "Normal"
+    },
+    "P008": {
+        "name": "Arjun Reddy",
+        "city": "Hyderabad",
+        "age": 29,
+        "gender": "Male",
+        "height": 1.78,
+        "weight": 105.0,
+        "bmi": 33.14,
+        "verdit": "Obese"
+    },
+    "P009": {
+        "name": "Kavya Nair",
+        "city": "Bengaluru",
+        "age": 26,
+        "gender": "Female",
+        "height": 1.7,
+        "weight": 65.0,
+        "bmi": 22.49,
+        "verdit": "Normal"
+    },
+    "P010": {
+        "name": "Rohan Joshi",
+        "city": "Pune",
+        "age": 33,
+        "gender": "Male",
+        "height": 1.74,
+        "weight": 68.0,
+        "bmi": 22.46,
+        "verdit": "Normal"
+    },
+    "P011": {
+        "name": "Aman",
+        "city": "Ghaziabad",
+        "age": 1,
+        "gender": "male",
+        "height": 1.0,
+        "weight": 1.0,
+        "bmi": 1.0,
+        "verdit": "Underweight"
+    },
+    "P012": {
+        "name": "Aman",
+        "city": "Ghaziabad",
+        "age": 1,
+        "gender": "male",
+        "height": 6.7,
+        "weight": 80.0,
+        "bmi": 1.78,
+        "verdit": "Underweight"
+    },
+    "P013": {
+        "name": "Arjun",
+        "city": "Ghaziabad",
+        "age": 30,
+        "gender": "male",
+        "height": 6.7,
+        "weight": 80.0,
+        "bmi": 1.78,
+        "verdit": "Underweight"
+    }
+}

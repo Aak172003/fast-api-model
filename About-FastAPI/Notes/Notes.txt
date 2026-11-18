@@ -1,0 +1,6 @@
+FastApi is a modern , high performance web framework for building APIs with python . 
+
+It builds on two python library :
+1. Starlet : Manges how your API receive request and send back response 
+2. Pydantic : Used to check if the data coming into your api is correct and in the right format . 
+
