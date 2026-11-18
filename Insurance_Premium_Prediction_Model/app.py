@@ -94,4 +94,3 @@ def predict_premium(data: UserInput):
     print("prediction value : ", prediction)
     
     return JSONResponse(status_code=200, content={'predicted_category': prediction})
-
