@@ -34,7 +34,12 @@ def predict_premium(data: UserInput):
         'occupation': data.occupation
     }
 
-    prediction = predict_output(user_input)
-    print("prediction value : ", prediction)
-    
-    return JSONResponse(status_code=200, content={'predicted_category': prediction})
+    # wanna send confidence score in json , as i have used RandomForest so we can easily get confidence score
+    # Try Catch
+    try:
+        
+        prediction = predict_output(user_input)
+        print("prediction value : ", prediction)
+        return JSONResponse(status_code=200, content={'predicted_category': prediction})
+    except Exception as e:
+        return JSONResponse(status_code=500 , content=str(e))
