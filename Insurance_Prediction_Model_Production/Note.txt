@@ -6,3 +6,21 @@ this is how activate this environmenet
 
 this is how run uvicorn server 
 uvicorn main:app --reload
+
+
+This is how build docker image for this project 
+This is my username for docker hub 
+docker build -t aakash1707/insurance-premium-api .
+
+This is how login through docker 
+docker login
+
+This is how i can push this docker image to production from local 
+docker push aakash1707/insurance-premium-api
+
+This is how pull the docker image take refrence from 
+docker pull aakash1707/insurance-premium-api
+
+This is how run pulled docker image 
+docker run -d -p 8000:8000 akash1707/insurance-premium-api
+
