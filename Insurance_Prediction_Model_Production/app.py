@@ -1,3 +1,4 @@
+from schema.predection_response import PredectionResponse
 from model.predict import predict_output, MODEL_VERSION, model
 from schema.user_input import UserInput
 from fastapi.responses import JSONResponse
@@ -22,7 +23,8 @@ def health_check():
         'model_loaded': model is not None
     }
 
-@app.post('/predict')
+# This endpoint will redurt in proper format (PredectionResponse)
+@app.post('/predict', response_model=PredectionResponse)
 def predict_premium(data: UserInput):
     # creating dataframe 
     user_input = {
@@ -34,7 +36,12 @@ def predict_premium(data: UserInput):
         'occupation': data.occupation
     }
 
-    prediction = predict_output(user_input)
-    print("prediction value : ", prediction)
-    
-    return JSONResponse(status_code=200, content={'predicted_category': prediction})
+    # wanna send confidence score in json , as i have used RandomForest so we can easily get confidence score
+    # Try Catch
+    try:
+        
+        prediction = predict_output(user_input)
+        print("prediction value : ", prediction)
+        return JSONResponse(status_code=200, content={'predicted_category': prediction})
+    except Exception as e:
+        return JSONResponse(status_code=500 , content=str(e))
