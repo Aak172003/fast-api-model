@@ -1,0 +1,8 @@
+This is how create an environment 
+python -m venv prod-fastenv  
+
+this is how activate this environmenet 
+. prod-fastenv/bin/activate   
+
+this is how run uvicorn server 
+uvicorn main:app --reload

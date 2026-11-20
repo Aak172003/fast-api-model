@@ -1,27 +1,14 @@
-from fastapi.responses import JSONResponse
 
-from fastapi import FastAPI
-from pydantic import BaseModel , Field , computed_field
+# from Insurance_Prediction_Model_Production.config.city_tier import tier_1_cities, tier_2_cities
+from config.city_tier import tier_1_cities, tier_2_cities
+
+from pydantic import BaseModel , Field , computed_field, field_validator
 from typing import Literal , Annotated
-import pickle
-import pandas as pd 
 
-# First import the ml model
-with open("model.pkl", 'rb') as f:
-    model = pickle.load(f)
 
-app = FastAPI()
 
-# pydantic model to validate incoming data 
-tier_1_cities = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune"]
-tier_2_cities = [
-    "Jaipur", "Chandigarh", "Indore", "Lucknow", "Patna", "Ranchi", "Visakhapatnam", "Coimbatore",
-    "Bhopal", "Nagpur", "Vadodara", "Surat", "Rajkot", "Jodhpur", "Raipur", "Amritsar", "Varanasi",
-    "Agra", "Dehradun", "Mysore", "Jabalpur", "Guwahati", "Thiruvananthapuram", "Ludhiana", "Nashik",
-    "Allahabad", "Udaipur", "Aurangabad", "Hubli", "Belgaum", "Salem", "Vijayawada", "Tiruchirappalli",
-    "Bhavnagar", "Gwalior", "Dhanbad", "Bareilly", "Aligarh", "Gaya", "Kozhikode", "Warangal",
-    "Kolhapur", "Bilaspur", "Jalandhar", "Noida", "Guntur", "Asansol", "Siliguri"
-]
+
+
 
 # pydantic model to validate incoming data
 class UserInput(BaseModel):
@@ -35,6 +22,15 @@ class UserInput(BaseModel):
     occupation: Annotated[Literal['retired', 'freelancer', 'student', 'government_job',
        'business_owner', 'unemployed', 'private_job'], Field(..., description='Occupation of the user')]
     
+    # 2nd Improvement -> we need to add titlecase in pydantic model like nhi hai to aajaega and hai to its ok 
+    # This is for data consistency
+    @field_validator('city')
+    @classmethod
+    def normalise_cityName(cls, v:str) -> str:
+        v = v.strip().title()
+        return v
+
+
     # commute bmi with the help of received data 
     @computed_field
     @property
@@ -71,26 +67,3 @@ class UserInput(BaseModel):
             return 2
         else:
             return 3
-
-
-@app.post('/predict')
-def predict_premium(data: UserInput):
-    # creating dataframe 
-    input_df = pd.DataFrame([{
-        'bmi': data.bmi,
-        'age_group': data.age_group,
-        'lifestyle_risk': data.lifestyle_risk,
-        'city_tier': data.city_tier,
-        'income_lpa': data.income_lpa,
-        'occupation': data.occupation
-    }])
-
-    get_info = model.predict(input_df)
-
-    print("predictionprediction : ", get_info)
-
-    prediction = model.predict(input_df)[0]
-
-    print("prediction value : ", prediction)
-    
-    return JSONResponse(status_code=200, content={'predicted_category': prediction})
