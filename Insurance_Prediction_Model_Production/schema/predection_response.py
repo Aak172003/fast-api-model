@@ -2,11 +2,6 @@
 from pydantic import BaseModel , Field
 from typing import Dict
 
-#  'predicted_category':predicted_class,
-#         'confidence':round(confidence, 4),
-#         'class_probablities':class_probs
-
-
 class PredectionResponse(BaseModel):
     predicted_category: str = Field(
         ...,
