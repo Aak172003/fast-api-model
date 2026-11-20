@@ -1,5 +1,4 @@
 
-# from Insurance_Prediction_Model_Production.config.city_tier import tier_1_cities, tier_2_cities
 from config.city_tier import tier_1_cities, tier_2_cities
 
 from pydantic import BaseModel , Field , computed_field, field_validator
